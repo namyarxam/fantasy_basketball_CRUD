@@ -43,5 +43,5 @@ app.get('/', function(req, res) {
 
 var port = process.env.PORT || 3000;
 var server = app.listen(port, function() {
-  console.log(new Date());
+  console.log('server initialized');
 });
