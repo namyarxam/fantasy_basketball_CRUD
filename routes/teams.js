@@ -52,18 +52,18 @@ teams.route('/:id')
   })
 
 teams.route('/:id/edit')
-  .get( db.addDefaultPlayers, db.getPlayersEditPage, (req, res) => {
+  .get( db.getBudget, db.addDefaultPlayers, db.getPlayersEditPage, (req, res) => {
     var id = req.params.id;
 
-    res.render('pages/edit_team.html.ejs', { playerList: res.rows, id: id});
+    res.render('pages/edit_team.html.ejs', { budget: res.budget, playerList: res.rows, id: id});
   })
 
 teams.route('/:id/:pos/edit')
-  .get( db.getPlayersByPosBudget, (req, res) => {
+  .get( db.getBudget, db.getPlayersByPosBudget, (req, res) => {
     var pos = req.params.pos;
     var id = req.params.id;
 
-    res.render('pages/pos_list.html.ejs', { playerList: res.rows, position: pos, id: id })
+    res.render('pages/pos_list.html.ejs', { budget: res.budget, playerList: res.rows, position: pos, id: id })
   })
 
 teams.route('/:id/:pos')
