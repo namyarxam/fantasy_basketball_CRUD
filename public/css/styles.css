@@ -2,6 +2,18 @@ li {
   list-style-type: none;
 }
 
+.title {
+  position: relative;
+  margin: auto;
+  top: 100px;
+  width: 200px;
+  color: white;
+  font-family: 'armalite_rifleregular';
+  background-color: black;
+  font-size: 35px;
+  font-family: arial;
+}
+
 .player-container {
   margin: auto;
   text-align: center;
@@ -16,15 +28,6 @@ li {
   flex-wrap: wrap;
   width: 600px;
 }
-
-/*.player-list-container {
-  margin: auto;
-  text-align: center;
-  width: 1050px;
-  height: 430px;
-  overflow: scroll;
-  border: 1px solid black;
-}*/
 
 .playerlist li {
   margin: 0 auto;
@@ -51,7 +54,12 @@ li {
 }
 
 .navbar {
-  background-color: #333;
+  padding-left: 22px;
+  width: 100%;
+
+  background-color: black;
+  position: relative;
+  font-family: monospace;
   height: 55px;
 }
 
@@ -64,15 +72,16 @@ li {
 
 .navbar a {
   color: white;
-  font-size: 20px;
+  font-size: 22px;
   font-family: arial;
+
   display: inline;
-  padding: 4px;
+  padding: 12px;
   text-decoration: none;
 }
 
 .navbar a:hover {
-  background-color: grey;
+  color: red;
 }
 
 .teamname {
@@ -99,4 +108,12 @@ li {
 
 .edit-div {
   display: inline-block;;
+}
+
+.main-container {
+  position: relative;
+  width:100%;
+  height: 700px;
+  background-image: url('https://images.unsplash.com/reserve/sfwmAkieTSyeToJZqfKV_IMG_9840%20BW.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=e5e46b2e862a43bee956101bc09a4f0b');
+  background-size: cover;
 }

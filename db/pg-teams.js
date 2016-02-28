@@ -61,6 +61,7 @@ function addTeam(req, res, next) {
     client.query('INSERT INTO teams (name, budget) VALUES ($1, 150)',
                               [req.body.name],
                               function(err, results) {
+                                done();
                                 if(err) {
                                   return console.error('error running query', err);
                                 }
@@ -88,6 +89,7 @@ function addDefaultPlayers(req, res, next) {
                                   client.query('INSERT INTO teams_players (teamid, playerid) VALUES ($1, 152), ($1, 153), ($1, 154), ($1, 155), ($1, 156)',
                                   [req.params.id],
                                   function(err, results) {
+                                    done();
                                     if(err) {
                                       return console.error('error running query', err);
                                     }
@@ -106,6 +108,7 @@ function getPlayersEditPage(req, res, next) {
       return res.status(500).json( {success: false, data:err })
     }
     client.query('SELECT * FROM players INNER JOIN teams_players ON players.playerid = teams_players.playerid WHERE teams_players.teamid = ($1) ORDER BY position', [req.params.id], (err, results) => {
+      done();
       if(err) {
         return console.error('error running query', err);
       }
@@ -133,6 +136,7 @@ function deleteTeam(req, res, next) {
     client.query('DELETE FROM teams WHERE teamid = ($1)',
                               [req.body.id],
                               function(err, results) {
+                                done();
                                 if(err) {
                                   return console.error('error running query', err);
                                 }
@@ -149,7 +153,7 @@ function getPlayersByPosBudget(req, res, next) {
       console.log(err);
       return res.status(500).json( {success: false, data: err} );
     }
-    client.query('SELECT * FROM players WHERE position = ($1) ORDER BY price desc', [(req.params.pos).toUpperCase()], (err, results) => {
+    client.query('SELECT * FROM players WHERE position = ($1) AND price < (SELECT budget FROM teams WHERE teamid = ($2)) ORDER BY price desc', [(req.params.pos).toUpperCase(), req.params.id], (err, results) => {
       done();
       if(err) {
         return console.error('error running query', err);
@@ -187,19 +191,71 @@ function showPlayerOnTeamByPos(req, res, next) {
       return res.status(500).json( {success: false, data: err} );
     }
     console.log((req.params.pos).toUpperCase);
-    client.query('SELECT players.name, players.position, players.ppg, players.img_url FROM players INNER JOIN teams_players ON players.playerid = teams_players.playerid INNER JOIN teams ON teams_players.teamid = teams.teamid WHERE teams.teamid = ($1) AND players.position = ($2)',[req.params.id, (req.params.pos).toUpperCase()], (err, results) => {
+    client.query('SELECT players.name, players.position, players.ppg, players.img_url, players.price FROM players INNER JOIN teams_players ON players.playerid = teams_players.playerid INNER JOIN teams ON teams_players.teamid = teams.teamid WHERE teams.teamid = ($1) AND players.position = ($2)',[req.params.id, (req.params.pos).toUpperCase()], (err, results) => {
       done();
       if(err) {
         return console.error('error running query', err);
       }
-      console.log(results.rows);
       res.rows = results.rows;
       next();
     });
   });
 }
 
+function editBudget(req, res, next) {
+  pg.connect(config, function(err, client, done) {
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json( {success: false, data: err} );
+    }
+    client.query('UPDATE teams SET budget = budget-($1) WHERE teamid = ($2)', [req.body.price, req.params.id], (err, results) => {
+      done();
+      if(err) {
+        return console.error('error running query', err);
+      }
+      next();
+    });
+  });
+}
 
+function resetPlayer(req, res, next) {
+  pg.connect(config, function(err, client, done) {
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json( {success: false, data:err} );
+    }
+    client.query('UPDATE teams_players SET playerid = (SELECT playerid FROM players WHERE position = ($1) ORDER BY ppg LIMIT 1) WHERE playerid = ($2)', [req.body.pos, req.body.playerid], (err, results) => {
+      done();
+      if(err) {
+        return console.error('error running query', err);
+      }
+      next();
+    });
+  });
+}
+
+function revertBudget(req, res, next) {
+  pg.connect(config, function(err, client, done) {
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json( {success: false, data:err} );
+    }
+    client.query('UPDATE teams SET budget = budget+($1) WHERE teamid = ($2)', [req.body.price, req.params.id], (err, results) => {
+      done();
+      if(err) {
+        return console.error('error running query', err);
+      }
+      next();
+    });
+  });
+}
+
+module.exports.revertBudget = revertBudget;
+module.exports.resetPlayer = resetPlayer;
+module.exports.editBudget = editBudget;
 module.exports.getBudget = getBudget;
 module.exports.getPlayersEditPage = getPlayersEditPage;
 module.exports.addDefaultPlayers = addDefaultPlayers;

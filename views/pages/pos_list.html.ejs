@@ -23,8 +23,8 @@
                   <input type="hidden" name="name" value="<%= player.name %>">
                   <input type="hidden" name="pos" value="<%= player.position %>">
                   <input type="hidden" name="ppg" value="<%= player.ppg %>">
-                  <label for="price"></label>
-                  <input class = "buy-player" type="submit" name="price" value="Buy for $<%= player.price %>">
+                  <input type="hidden" name="price" value="<%= player.price %>">
+                  <input class = "buy-player" type="submit" value="Buy for $<%= player.price %>">
             </form></li>
           </div>
         <% }) %>

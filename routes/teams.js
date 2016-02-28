@@ -46,7 +46,6 @@ teams.route('/new')
   })
 
 teams.route('/:id')
-  // .get(select from cross table and render team and players)
   .delete( db.deleteTeam, (req, res) => {
     res.redirect('/teams');
   })
@@ -56,6 +55,11 @@ teams.route('/:id/edit')
     var id = req.params.id;
 
     res.render('pages/edit_team.html.ejs', { budget: res.budget, playerList: res.rows, id: id});
+  })
+  .post( db.resetPlayer, db.revertBudget, (req, res) => {
+    var id = req.params.id;
+
+    res.redirect('/teams/' + id + '/edit');
   })
 
 teams.route('/:id/:pos/edit')
@@ -72,7 +76,7 @@ teams.route('/:id/:pos')
 
     res.render('pages/team_player.html.ejs', { playerInfo: res.rows, teamID: id });
   })
-  .post( db.addPlayerToTeam, (req, res) => {
+  .post( db.addPlayerToTeam, db.editBudget, (req, res) => {
     var pos = req.params.pos;
     var id = req.params.id;
 

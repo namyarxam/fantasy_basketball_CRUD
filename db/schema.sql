@@ -30,3 +30,7 @@ CREATE TABLE teams_players (
   teamid INT REFERENCES teams(teamid),
   playerid INT REFERENCES players(playerid)
 );
+
+
+BEGIN;
+UPDATE  
