@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Players</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <%- include ../partials/nav.html.ejs %>
+  <body>
+    <div class="budget-container">
+      <p class="budget">YOUR <%= playerInfo[0].position %></p>
+    </div>
+    <div class="team-player-container">
+      <ul class="team-player">
+        <% playerInfo.forEach(function(player) { %>
+          <div class="team-player-div">
+            <li><%= player.name %></li>
+            <li><%= player.position %></li>
+            <li><%= player.ppg %> PPG</li>
+            <li><img class="team-playerpic" src="<%= player.img_url %>"></li>
+          </div>
+        <% }) %>
+      </ul>
+    </div>
+    <div class="back-container">
+      <form action="/teams/<%= teamID %>/edit" method="get">
+        <input type="submit"  value="BACK">
+      </form>
+    </div>
+  </body>
+</html>

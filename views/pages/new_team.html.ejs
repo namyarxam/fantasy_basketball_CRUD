@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Team</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <%- include ../partials/nav.html.ejs %>
+  <body>
+  <form class="new-team-form" action="/teams" method="post">
+    <label for="name">Team Name</label>
+    <input type="text" name="name">
+    <input type="submit" value="Submit">
+  </form>
+  </body>
+</html>

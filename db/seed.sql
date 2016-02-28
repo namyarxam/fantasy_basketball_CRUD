@@ -158,3 +158,10 @@ INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('C', 'Tim
 INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('C', 'Jonas Valunciunas', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/6477.png', 12.8, 48.1, 22);
 INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('C', 'Rudy Gobert', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3032976.png', 10.2, 44.4, 18);
 INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('C', 'Marcin Gortat', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/2758.png', 13.7, 46.1, 31);
+
+--STARTERS
+INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('PG', 'Baron Davis', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/194.png', 2.0, 50, 0);
+INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('SG', 'Derek Fischer', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/246.png', 2.0, 50, 0);
+INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('SF', 'Mike Miller', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/558.png', 2.0, 50, 0);
+INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('PF', 'Rasheed Wallace', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/883.png', 2.0, 50, 0);
+INSERT INTO players (position, name, img_url, ppg, dfg, price) VALUES ('C', 'JaVale McGee', 'http://a.espncdn.com/combiner/i?img=/i/headshots/nba/players/full/3452.png', 2, 50, 0);

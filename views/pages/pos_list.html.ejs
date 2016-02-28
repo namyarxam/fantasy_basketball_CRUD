@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Available <%= position.toUpperCase() %>'s</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <%- include ../partials/nav.html.ejs %>
+  <body>
+    <div class="budget-container">
+      <p class="budget">BUDGET: $150</p>
+    </div>
+    <div class="player-container">
+      <ul class="playerlist">
+        <% playerList.forEach(function(player) { %>
+          <div class="player-div">
+            <li class="player-name"><%= player.name %></li>
+            <li><%= player.position %></li>
+            <li><%= player.ppg %> PPG</li>
+            <li><img class="playerpic" src="<%= player.img_url %>"></li>
+            <li><form action="/teams/<%= id %>/<%= (player.position).toLowerCase() %>" method="post">
+                  <input type="hidden" name="playerid" value="<%= player.playerid %>">
+                  <input type="hidden" name="name" value="<%= player.name %>">
+                  <input type="hidden" name="pos" value="<%= player.position %>">
+                  <input type="hidden" name="ppg" value="<%= player.ppg %>">
+                  <label for="price"></label>
+                  <input class = "buy-player" type="submit" name="price" value="Buy for $<%= player.price %>">
+            </form></li>
+          </div>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

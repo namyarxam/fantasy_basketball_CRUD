@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Teams</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <%- include ../partials/nav.html.ejs %>
+  <body class="editbody">
+    <div class="edit-div">
+      <p><%= playerList[2].name %></p>
+      <img class="playerpic" src="<%= playerList[2].img_url %>">
+      <form class="pg-search" action="/teams/<%= id %>/pg/edit" method="get">
+        <input type="submit" value="Edit PG">
+      </form>
+      <form class="pg-search" action="/teams/<%= id %>/pg" method="get">
+        <input type="submit" value="View PG">
+      </form>
+    </div>
+
+    <div class="edit-div">
+      <p><%= playerList[4].name %></p>
+      <img class="playerpic" src="<%= playerList[4].img_url %>">
+      <form class="sg-search" action="/teams/<%= id %>/sg/edit" method="get">
+        <input type="submit" value="Edit SG">
+      </form>
+      <form class="sg-search" action="/teams/<%= id %>/sg" method="get">
+        <input type="submit" value="View SG">
+      </form>
+    </div>
+
+    <div class="edit-div">
+      <p><%= playerList[3].name %></p>
+      <img class="playerpic" src="<%= playerList[3].img_url %>">
+      <form class="sf-search" action="/teams/<%= id %>/sf/edit/" method="get">
+        <input type="submit" value="Edit SF">
+      </form>
+      <form class="sf-search" action="/teams/<%= id %>/sf/" method="get">
+        <input type="submit" value="View SF">
+      </form>
+    </div>
+
+    <div class="edit-div">
+      <p><%= playerList[1].name %></p>
+      <img class="playerpic" src="<%= playerList[1].img_url %>">
+      <form class="pf-search" action="/teams/<%= id %>/pf/edit" method="get">
+        <input type="submit" value="Edit PF">
+      </form>
+      <form class="pf-search" action="/teams/<%= id %>/pf" method="get">
+        <input type="submit" value="View PF">
+      </form>
+    </div>
+
+    <div class="edit-div">
+      <p><%= playerList[0].name %></p>
+      <img class="playerpic" src="<%= playerList[0].img_url %>">
+      <form class="c-search" action="/teams/<%= id %>/c/edit" method="get">
+        <input type="submit" value="Edit C">
+      </form>
+      <form class="c-search" action="/teams/<%= id %>/c" method="get">
+        <input type="submit" value="View C">
+      </form>
+    </div>
+
+  </body>
+</html>

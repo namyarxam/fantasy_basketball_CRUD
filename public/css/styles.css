@@ -1,0 +1,102 @@
+li {
+  list-style-type: none;
+}
+
+.player-container {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.team-player-container {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+}
+
+/*.player-list-container {
+  margin: auto;
+  text-align: center;
+  width: 1050px;
+  height: 430px;
+  overflow: scroll;
+  border: 1px solid black;
+}*/
+
+.playerlist li {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.playerpic {
+  height: 100px;
+  width: 140px;
+}
+
+.player-div {
+  background-color: white;
+  width: 150px;
+  margin: 5px;
+  border: 3px solid black;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.team-player-div {
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.navbar {
+  background-color: #333;
+  height: 55px;
+}
+
+.navbar li {
+  list-style-type: none;
+  margin: 0;
+  display: inline;
+  line-height: 55px;
+}
+
+.navbar a {
+  color: white;
+  font-size: 20px;
+  font-family: arial;
+  display: inline;
+  padding: 4px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: grey;
+}
+
+.teamname {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.player-name {
+  font-weight: bold;
+}
+
+.buy-player {
+  font-weight: bold;
+}
+
+.budget-container {
+  position: relative;
+  text-align: center;
+  font-size: 30px;
+  margin: auto;
+  font-family: arial black;
+  top: 11px;
+}
+
+.edit-div {
+  display: inline-block;;
+}
