@@ -32,5 +32,4 @@ CREATE TABLE teams_players (
 );
 
 
-BEGIN;
-UPDATE  
+select players.name, players.position, players.ppg, players.dfg, players.img_url, teams.teamid from players inner join teams_players on players.playerid = teams_players.playerid inner join teams on teams_players.teamid = teams.teamid;

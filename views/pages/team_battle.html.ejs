@@ -7,12 +7,30 @@
   </head>
   <body>
     <%- include ../partials/nav.html.ejs %>
-    <div class="team-container">
-      <ul class="teamlist">
-        <% teams.forEach(function(team) { %>
-          <li class="teamname"><%= team.name %></li>
-        <% }) %>
-      </ul>
+    <h1 class="battletitle">WHO SIGNED A BETTER STARTING 5?</h1>
+    <div class="swords-div">
+      <img class="swords" src="/images/swords-310518_960_720.png">
     </div>
+    <div class="team-battle-container">
+      <div class="team-1">
+        <h1>TEAM 1</h1>
+        <select form="battle-form" name="id1" class="team1-select">
+          <% teams.forEach(function(team) { %>
+            <option value="<%= team.teamid %>"><%= team.name %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="team-2">
+        <h1>TEAM 2</h1>
+        <select form="battle-form" name="id2" class="team2-select">
+          <% teams.forEach(function(team) { %>
+            <option value="<%= team.teamid %>"><%= team.name %></option>
+          <% }) %>
+        </select>
+      </div>
+    </div>
+    <!-- <form id="battle-form" action="/teams/battle/results" method="get">
+      <input type="submit" value="FIGHT">
+    </form> -->
   </body>
 </html>

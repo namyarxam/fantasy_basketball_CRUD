@@ -60,6 +60,11 @@ app.get('/', (req, res)=> {
   res.render('pages/home.html.ejs', { user: req.session.user });
 });
 
+app.delete('/logout', (req, res) => {
+  req.session.destroy(function(err) {
+    res.redirect('/');
+  })
+})
 
 app.use('/teams', teamRoutes);
 app.use('/players', playerRoutes);

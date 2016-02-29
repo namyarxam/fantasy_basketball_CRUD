@@ -39,6 +39,16 @@ teams.route('/')
   .post( db.addTeam, (req, res) => {
     res.redirect('/teams');
   })
+// 
+// teams.get('/battle/results', db.getInfoBattleResults, (req, res) => {
+//   console.log(res.team1, res.team2)
+//   res.render('pages/battle_results.html.ejs', { team1: res.team1, team2: res.team2 });
+// });
+
+
+teams.get('/battle', db.getTeamsPlayersTeamBattle, (req, res) => {
+  res.render('pages/team_battle.html.ejs', { user: req.session.user, teams: res.rows } );
+});
 
 teams.route('/new')
   .get( (req, res) => {
@@ -83,9 +93,14 @@ teams.route('/:id/:pos')
     res.redirect('/teams/' + id + '/' + pos);
   })
 
-teams.get('/battle', db.getTeams, (req, res) => {
-  res.render('pages/team_battle.html.ejs', { user: req.session.user, teams: res.rows } );
-})
+teams.delete('/users/logout', (req, res) => {
+  req.session.destroy(function(err) {
+    res.redirect('/');
+  })
+});
+
+
+
 
 
 

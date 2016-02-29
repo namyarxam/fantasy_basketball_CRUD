@@ -7,11 +7,6 @@
   </head>
   <body>
     <%- include ../partials/nav.html.ejs %>
-    <div class="battle-form-container">
-      <form class="battle-form" action="/teams/battle" method="get">
-        <input type="submit" value="BATTLE TEAMS">
-      </form>
-    </div>
     <div class="team-container">
       <ul class="teamlist">
         <% teams.forEach(function(team) { %>

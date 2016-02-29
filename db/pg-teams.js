@@ -253,6 +253,51 @@ function revertBudget(req, res, next) {
   });
 }
 
+function getTeamsPlayersTeamBattle(req, res, next) {
+  pg.connect(config, function(err, client, done) {
+    if(err) {
+      done();
+      console.log(err);
+      return res.status(500).json( {success: false, data: err} );
+    }
+    client.query('SELECT * FROM teams ORDER BY teamid', (err, results) => {
+      done();
+      if(err) {
+        return console.error('error running query', err);
+      }
+      res.rows = results.rows;
+      next();
+    });
+  });
+}
+
+// function getInfoBattleResults(req, res, next) {
+//   pg.connect(config, function(err, client, done) {
+//     if(err) {
+//       done();
+//       console.log(err);
+//       return res.status(500).json( {success: false, data: err} );
+//     }
+//     client.query('SELECT players.name, players.position, players.ppg, players.dfg, players.img_url, teams.teamid FROM players INNER JOIN teams_players ON players.playerid = teams_players.playerid INNER JOIN teams ON teams_players.teamid = teams.teamid WHERE teams.teamid = ($1)', [req.body.id1], (err, results) => {
+//       if(err) {
+//         return console.error('error running query', err);
+//       }
+//       res.team1 = results.rows;
+//       next();
+//     });
+//     client.query('SELECT players.name, players.position, players.ppg, players.dfg, players.img_url, teams.teamid FROM players INNER JOIN teams_players ON players.playerid = teams_players.playerid INNER JOIN teams ON teams_players.teamid = teams.teamid WHERE teams.teamid = ($1)', [req.body.id2], (err, results) => {
+//       if(err) {
+//         return console.error('error running query', err);
+//       }
+//       res.team2 = results.rows;
+//       next();
+//     });
+//   });
+// }
+//
+// module.exports.getInfoBattleResults = getInfoBattleResults;
+
+module.exports.getTeamsPlayersTeamBattle = getTeamsPlayersTeamBattle;
 module.exports.revertBudget = revertBudget;
 module.exports.resetPlayer = resetPlayer;
 module.exports.editBudget = editBudget;
