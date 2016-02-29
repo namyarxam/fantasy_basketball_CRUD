@@ -7,101 +7,112 @@
   </head>
   <%- include ../partials/nav.html.ejs %>
   <body class="editbody">
+    <div class="edit-title">
+      <h1>SIGN YOUR STARTING FIVE</h1>
+    </div>
     <div class="budget-container">
-      <p class="budget">BUDGET: $<%= budget[0].budget %></p>
+      <h1 class="budget">BUDGET: $<%= budget[0].budget %></h1>
     </div>
-    SIGN YOUR STARTING FIVE
-    <div class="edit-div">
-      <p><%= playerList[2].name %></p>
-      <img class="playerpic" src="<%= playerList[2].img_url %>">
-      <form class="pg-search" action="/teams/<%= id %>/pg/edit" method="get">
-        <input type="submit" value="Edit PG">
-      </form>
-      <form class="pg-search" action="/teams/<%= id %>/pg" method="get">
-        <input type="submit" value="View PG">
-      </form>
-      <form class="pg-search" action="/teams/<%= id %>/edit" method="post">
-        <input type="hidden" name="pos" value="<%= playerList[2].position %>">
-        <input type="hidden" name="playerid" value="<%= playerList[2].playerid %>">
-        <input type="hidden" name="price" value="<%= playerList[2].price %>">
-        <input type="submit" value="Reset PG">
-      </form>
+    <div class="edit-pic">
+      <img class="court" src="/images/basketball-half-court-clipart-RidRjzE5T.png">
     </div>
+    <div class="edit-players">
+      <div class="edit-div pgedit">
+        <p><%= playerList[2].name %></p>
+        <img class="playerpic-edit" src="<%= playerList[2].img_url %>">
+        <p>$<%= playerList[2].price %> PG</p>
+        <form class="pg-search" action="/teams/<%= id %>/pg/edit" method="get">
+          <input type="submit" value="Edit">
+        </form>
+        <form class="pg-search" action="/teams/<%= id %>/pg" method="get">
+          <input type="submit" value="View">
+        </form>
+        <form class="pg-search" action="/teams/<%= id %>/edit" method="post">
+          <input type="hidden" name="pos" value="<%= playerList[2].position %>">
+          <input type="hidden" name="playerid" value="<%= playerList[2].playerid %>">
+          <input type="hidden" name="price" value="<%= playerList[2].price %>">
+          <input type="submit" value="Reset">
+        </form>
+      </div>
 
-    <div class="edit-div">
-      <p><%= playerList[4].name %></p>
-      <img class="playerpic" src="<%= playerList[4].img_url %>">
-      <form class="sg-search" action="/teams/<%= id %>/sg/edit" method="get">
-        <input type="submit" value="Edit SG">
-      </form>
-      <form class="sg-search" action="/teams/<%= id %>/sg" method="get">
-        <input type="submit" value="View SG">
-      </form>
-      <form class="sg-search" action="/teams/<%= id %>/edit" method="post">
-        <input type="hidden" name="pos" value="<%= playerList[4].position %>">
-        <input type="hidden" name="playerid" value="<%= playerList[4].playerid %>">
-        <input type="hidden" name="price" value="<%= playerList[4].price %>">
-        <input type="submit" value="Reset SG">
-      </form>
-    </div>
+      <div class="edit-div sgedit">
+        <p><%= playerList[4].name %></p>
+        <img class="playerpic-edit" src="<%= playerList[4].img_url %>">
+        <p>$<%= playerList[4].price %> SG</p>
+        <form class="sg-search" action="/teams/<%= id %>/sg/edit" method="get">
+          <input type="submit" value="Edit">
+        </form>
+        <form class="sg-search" action="/teams/<%= id %>/sg" method="get">
+          <input type="submit" value="View">
+        </form>
+        <form class="sg-search" action="/teams/<%= id %>/edit" method="post">
+          <input type="hidden" name="pos" value="<%= playerList[4].position %>">
+          <input type="hidden" name="playerid" value="<%= playerList[4].playerid %>">
+          <input type="hidden" name="price" value="<%= playerList[4].price %>">
+          <input type="submit" value="Reset">
+        </form>
+      </div>
 
-    <div class="edit-div">
-      <p><%= playerList[3].name %></p>
-      <img class="playerpic" src="<%= playerList[3].img_url %>">
-      <form class="sf-search" action="/teams/<%= id %>/sf/edit/" method="get">
-        <input type="submit" value="Edit SF">
-      </form>
-      <form class="sf-search" action="/teams/<%= id %>/sf/" method="get">
-        <input type="submit" value="View SF">
-      </form>
-      <form class="sf-search" action="/teams/<%= id %>/edit" method="post">
-        <input type="hidden" name="pos" value="<%= playerList[3].position %>">
-        <input type="hidden" name="playerid" value="<%= playerList[3].playerid %>">
-        <input type="hidden" name="price" value="<%= playerList[3].price %>">
-        <input type="submit" value="Reset SF">
-      </form>
-    </div>
+      <div class="edit-div sfedit">
+        <p><%= playerList[3].name %></p>
+        <img class="playerpic-edit" src="<%= playerList[3].img_url %>">
+        <p>$<%= playerList[3].price %> SF</p>
+        <form class="sf-search" action="/teams/<%= id %>/sf/edit/" method="get">
+          <input type="submit" value="Edit">
+        </form>
+        <form class="sf-search" action="/teams/<%= id %>/sf/" method="get">
+          <input type="submit" value="View">
+        </form>
+        <form class="sf-search" action="/teams/<%= id %>/edit" method="post">
+          <input type="hidden" name="pos" value="<%= playerList[3].position %>">
+          <input type="hidden" name="playerid" value="<%= playerList[3].playerid %>">
+          <input type="hidden" name="price" value="<%= playerList[3].price %>">
+          <input type="submit" value="Reset">
+        </form>
+      </div>
 
-    <div class="edit-div">
-      <p><%= playerList[1].name %></p>
-      <img class="playerpic" src="<%= playerList[1].img_url %>">
-      <form class="pf-search" action="/teams/<%= id %>/pf/edit" method="get">
-        <input type="submit" value="Edit PF">
-      </form>
-      <form class="pf-search" action="/teams/<%= id %>/pf" method="get">
-        <input type="submit" value="View PF">
-      </form>
-      <form class="pf-search" action="/teams/<%= id %>/edit" method="post">
-        <input type="hidden" name="pos" value="<%= playerList[1].position %>">
-        <input type="hidden" name="playerid" value="<%= playerList[1].playerid %>">
-        <input type="hidden" name="price" value="<%= playerList[1].price %>">
-        <input type="submit" value="Reset PF">
-      </form>
-    </div>
+      <div class="edit-div pfedit">
+        <p><%= playerList[1].name %></p>
+        <img class="playerpic-edit" src="<%= playerList[1].img_url %>">
+        <p>$<%= playerList[1].price %> PF</p>
+        <form class="pf-search" action="/teams/<%= id %>/pf/edit" method="get">
+          <input type="submit" value="Edit">
+        </form>
+        <form class="pf-search" action="/teams/<%= id %>/pf" method="get">
+          <input type="submit" value="View">
+        </form>
+        <form class="pf-search" action="/teams/<%= id %>/edit" method="post">
+          <input type="hidden" name="pos" value="<%= playerList[1].position %>">
+          <input type="hidden" name="playerid" value="<%= playerList[1].playerid %>">
+          <input type="hidden" name="price" value="<%= playerList[1].price %>">
+          <input type="submit" value="Reset">
+        </form>
+      </div>
 
-    <div class="edit-div">
-      <p><%= playerList[0].name %></p>
-      <img class="playerpic" src="<%= playerList[0].img_url %>">
-      <form class="c-search" action="/teams/<%= id %>/c/edit" method="get">
-        <input type="submit" value="Edit C">
-      </form>
-      <form class="c-search" action="/teams/<%= id %>/c" method="get">
-        <input type="submit" value="View C">
-      </form>
-      <form class="c-search" action="/teams/<%= id %>/edit" method="post">
-        <input type="hidden" name="pos" value="<%= playerList[0].position %>">
-        <input type="hidden" name="playerid" value="<%= playerList[0].playerid %>">
-        <input type="hidden" name="price" value="<%= playerList[0].price %>">
-        <input type="submit" value="Reset C">
-      </form>
-    </div>
+      <div class="edit-div cedit">
+        <p><%= playerList[0].name %></p>
+        <img class="playerpic-edit" src="<%= playerList[0].img_url %>">
+        <p>$<%= playerList[0].price %> C</p>
+        <form class="c-search" action="/teams/<%= id %>/c/edit" method="get">
+          <input type="submit" value="Edit">
+        </form>
+        <form class="c-search" action="/teams/<%= id %>/c" method="get">
+          <input type="submit" value="View">
+        </form>
+        <form class="c-search" action="/teams/<%= id %>/edit" method="post">
+          <input type="hidden" name="pos" value="<%= playerList[0].position %>">
+          <input type="hidden" name="playerid" value="<%= playerList[0].playerid %>">
+          <input type="hidden" name="price" value="<%= playerList[0].price %>">
+          <input type="submit" value="Reset">
+        </form>
+      </div>
 
-    <div class="edit-div">
-      <form class="deleteform" action="/teams/<%= id %>?_method=DELETE" method="post">
-        <input type="hidden" name="id" value="<%= id %>">
-        <input type="submit" value="DELETE">
-      </form>
+      <div>
+        <form class="deleteform" action="/teams/<%= id %>?_method=DELETE" method="post">
+          <input type="hidden" name="id" value="<%= id %>">
+          <input class="edit-delete" type="submit" value="DELETE">
+        </form>
+      </div>
     </div>
-
   </body>
 </html>

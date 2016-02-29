@@ -83,6 +83,9 @@ teams.route('/:id/:pos')
     res.redirect('/teams/' + id + '/' + pos);
   })
 
+teams.get('/battle', db.getTeams, (req, res) => {
+  res.render('pages/team_battle.html.ejs', { teams: res.rows } );
+})
 
 
 

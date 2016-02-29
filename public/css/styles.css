@@ -39,7 +39,7 @@ li {
   position: relative;
   margin: auto;
   padding-top: 0;
-  top: 40px;
+  top: 85px;
   width: 430px;
   color: red;
   font-size: 65px;
@@ -51,8 +51,8 @@ li {
   color: red;
   font-size: 20px;
   position: relative;
-  top: 82px;
-  left: 27%;
+  margin: auto;
+  top: 95px;
   font-family: monospace;
   width: 450px;
   text-align: center;
@@ -71,6 +71,9 @@ li {
 }
 
 .team-player-container {
+  position: relative;
+  right: -9px;
+  top: 20px;
   margin: auto;
   text-align: center;
   display: flex;
@@ -154,14 +157,33 @@ li {
 .budget-container {
   position: relative;
   text-align: center;
-  font-size: 30px;
+  font-size: 10px;
   margin: auto;
   font-family: arial black;
   top: 11px;
 }
 
+.budget {
+  position: relative;
+  bottom: 21px;
+}
+
+.budget-single {
+  margin: auto;
+  font-size: 35px;
+}
+
 .edit-div {
   display: inline-block;;
+}
+
+.budget-list {
+  font-size: 30px;
+}
+
+.playerlist {
+  position: relative;
+  right: 20px;
 }
 
 .newteamtitle {
@@ -175,28 +197,39 @@ li {
   position: relative;
   left: 32%;
   top: 45px;
+  margin: auto;
 }
 
 .newteamform label {
   display: block;
   margin: auto;
+  color: red;
+  text-shadow: 2px 2px black;
   font-family: monospace;
-  font-size: 20px;
+  font-size: 25px;
   position: relative;
-  left: 15%;
+  left: 14%;
 }
 
 .newteamform input {
+  position: relative;
   display: block;
+  right: 31%;
   font-size: 35px;
+  margin: auto;
+  border: 2px solid black;
+}
+
+.newteamform input:focus {
+  outline: 0;
 }
 
 .newteamsubmit {
   background-color: black;
   color: white;
   position: relative;
-  left: 11%;
   top: 20px;
+  right: 31%;
   border: 5px solid black;
   font-family: 'armalite_rifleregular';
 }
@@ -218,4 +251,139 @@ li {
 
 .teamlist li {
   font-family: 'armalite_rifleregular';
+}
+
+.edit-title {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  font-family: 'armalite_rifleregular';
+  font-size: 20px;
+}
+
+.court {
+  width: 700px;
+  height: 400px;
+}
+
+.edit-pic {
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
+
+.edit-div {
+  position: relative;
+  margin: auto;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.edit-div p {
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+.playerpic-edit {
+  height:70px;
+  width: 95px;
+}
+
+.editbody form {
+  display: inline;
+}
+
+.edit-players {
+  width:750px;
+  height:600px;
+  position: relative;
+  margin: auto;
+  right: 194px;
+}
+
+.pgedit {
+  position:relative;
+  left: 350px;
+  bottom: 144px;
+  background-color: white;
+}
+
+.sgedit {
+  position:relative;
+  background-color: white;
+  bottom: 144px;
+  left: 519px;
+}
+
+.sfedit {
+  position:relative;
+  background-color: white;
+  left: 82px;
+  bottom: 305px;
+}
+
+.pfedit {
+  position:relative;
+  background-color: white;
+  left: 251px;
+  bottom: 305px;
+}
+
+.cedit {
+  position:relative;
+  background-color: white;
+  left: -35px;
+  bottom: 388px;
+}
+
+.deleteform {
+  position: relative;
+  background-color: black;
+  left: 522px;
+  bottom: 184px;
+}
+
+.deleteform input:focus {
+  outline: 0;
+}
+
+.edit-delete {
+  color: red;
+  background-color: black;
+  font-size: 20px;
+  font-family: monospace;
+}
+
+.tp-name {
+  font-family: 'armalite_rifleregular';
+  font-size: 35px;
+}
+
+.tp-pos {
+  font-family: monospace;
+  font-size: 25px;
+}
+
+.tp-ppg {
+  font-family: monospace;;
+  font-size: 25px;
+}
+
+.tp-price {
+  font-family: monospace;
+  font-size: 25px;
+}
+
+.team-playerpic {
+  width: 500px;
+  height: 350px;
+}
+
+.back-container {
+  position: relative;
+  left: 109px;
+  bottom: 275px;
+  font-size: 50px;
+  padding: 30px;
 }

@@ -8,16 +8,16 @@
   <%- include ../partials/nav.html.ejs %>
   <body>
     <div class="budget-container">
-      <p class="budget">YOUR <%= playerInfo[0].position %></p>
+      <p class="budget-single">YOUR <%= playerInfo[0].position %></p>
     </div>
     <div class="team-player-container">
       <ul class="team-player">
         <% playerInfo.forEach(function(player) { %>
           <div class="team-player-div">
-            <li><%= player.name %></li>
-            <li><%= player.position %></li>
-            <li><%= player.ppg %> PPG</li>
-            <li>$<%= player.price %></li>
+            <li class="tp-name"><%= player.name %></li>
+            <li class="tp-pos"><%= player.position %></li>
+            <li class="tp-ppg"><%= player.ppg %> PPG</li>
+            <li class="tp-price">$<%= player.price %></li>
             <li><img class="team-playerpic" src="<%= player.img_url %>"></li>
           </div>
         <% }) %>
@@ -25,7 +25,7 @@
     </div>
     <div class="back-container">
       <form action="/teams/<%= teamID %>/edit" method="get">
-        <input type="submit"  value="BACK">
+        <input  class="backbutton" type="submit"  value="BACK TO TEAM">
       </form>
     </div>
   </body>

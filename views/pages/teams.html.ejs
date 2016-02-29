@@ -7,6 +7,11 @@
   </head>
   <%- include ../partials/nav.html.ejs %>
   <body>
+    <div class="battle-form-container">
+      <form class="battle-form" action="/teams/battle" method="get">
+        <input type="submit" value="BATTLE TEAMS">
+      </form>
+    </div>
     <div class="team-container">
       <ul class="teamlist">
         <% teams.forEach(function(team) { %>
@@ -14,7 +19,7 @@
           <form class="editform" action="/teams/<%= team.teamid %>/edit" method="get">
             <input type="submit" value="EDIT">
           </form>
-          <form class="deleteform" action="/teams/<%= team.teamid %>?_method=DELETE" method="post">
+          <form class="deleteform-main" action="/teams/<%= team.teamid %>?_method=DELETE" method="post">
             <input type="hidden" name="id" value="<%= team.teamid %>">
             <input type="submit" value="DELETE">
           </form>
