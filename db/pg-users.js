@@ -16,9 +16,9 @@ var config = {
 /*SESSIONS STUFF*/
 function loginUser(req, res, next) {
   var email = req.body.email;
-  var passowrd = req.body.password;
+  var password = req.body.password;
 
-  pg.connect(connectionString, function(err, client, done) {
+  pg.connect(config, function(err, client, done) {
     if(err) {
       done();
       console.log(err);
@@ -53,7 +53,7 @@ function createUser(req, res, next) {
   createSecure(req.body.email, req.body.password, saveUser);
 
   function saveUser(email, hash) {
-    pg.connect(connectionString, function(err, client, done) {
+    pg.connect(config, function(err, client, done) {
       // Handle connection errors
       if(err) {
         done();

@@ -33,7 +33,7 @@ function points(ppg, dfg) {
 
 players.route('/')
   .get( db.showPlayers, (req, res) => {
-    res.render('pages/players.html.ejs', { playerList: res.rows });
+    res.render('pages/players.html.ejs', { user: req.session.user, playerList: res.rows });
   })
 
 module.exports = players;

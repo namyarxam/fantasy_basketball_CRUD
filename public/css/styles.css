@@ -13,12 +13,21 @@
 .homebody {
   background-image: url('https://images.unsplash.com/reserve/sfwmAkieTSyeToJZqfKV_IMG_9840%20BW.jpg?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=e5e46b2e862a43bee956101bc09a4f0b');
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .newteambody {
   background-image: url('https://images.unsplash.com/photo-1454367579038-db0c6801939e?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=e410efff0ebc0191e0caa83a25aab2c6');
   background-size: cover;
   background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.loginbody {
+  background-image: url('https://images.unsplash.com/photo-1449973581296-e82bb57dc2ca?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=f15eb2f5961a5421cfa25baaecdd38ac');
+  background-size: cover;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 li {
@@ -386,4 +395,71 @@ li {
   bottom: 275px;
   font-size: 50px;
   padding: 30px;
+}
+
+.loginbar {
+  position:absolute;
+  z-index: 1;
+  left: 45%;
+  top: 0%;
+}
+.login * {
+  display: inline;
+}
+
+.login label {
+  color: white;
+  padding-left: 10px;
+  font-family: monospace;
+}
+
+.logout-div {
+  position: fixed;
+  left: 90%;
+  bottom: 95%;
+  cursor: pointer;
+}
+
+.logoutbutton {
+  font-family: monospace;
+  font-size: 18px;
+  color:white;
+}
+
+.logoutbutton:hover {
+  color: red;
+}
+
+#portal {
+  position: absolute;
+  left: 90%;
+  bottom: 95%;
+}
+
+#portal:hover {
+  cursor: pointer;
+}
+
+.login-div {
+  margin: auto;
+  position: relative;
+  top: 5%;
+  text-align: center;
+  line-height: 25px;
+  font-family: 'armalite_rifleregular';
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 550px;
+  height: 250px;
+}
+
+.login-div h1 {
+  position: relative;
+  top: 50px;
+  color: red;
+  text-shadow: 2px 2px black;
+}
+
+.login {
+  position: relative;
+  top: 50px;
 }

@@ -6,7 +6,7 @@ if(!process.env.NODE_ENV) {
   require('dotenv').config();
 }
 
-var db               = require('./db/users.js');
+var db               = require('./db/pg-users.js');
 var pg               = require('pg');
 var path             = require('path');
 var express          = require('express');
@@ -17,6 +17,7 @@ var session          = require('express-session');
 var pgSession        = require('connect-pg-simple')(session);
 var teamRoutes       = require( path.join(__dirname, 'routes', 'teams'));
 var playerRoutes     = require( path.join(__dirname, 'routes', 'players'));
+var userRoutes       = require( path.join(__dirname, 'routes', 'users'));
 
 var app = express();
 
@@ -62,6 +63,7 @@ app.get('/', (req, res)=> {
 
 app.use('/teams', teamRoutes);
 app.use('/players', playerRoutes);
+app.use('/users', userRoutes);
 
 
 

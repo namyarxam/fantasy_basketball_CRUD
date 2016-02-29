@@ -3,5 +3,18 @@
   <li><a href="/players">PLAYERS</a></li>
   <li><a href="/teams">TEAMS</a></li>
   <li><a href="/teams/new">NEW TEAM</a></li>
-  <li><a class ="logout" href="#">LOGOUT</a></li>
 </ul>
+
+<% if(user) {%>
+  <div class="logout-div">
+    <form id="logout" action="users/logout?_method=DELETE" method="post">
+      <a class="logoutbutton" onclick="document.getElementById('logout').submit();">LOGOUT</a>
+    </form>
+  </div>
+<% } else { %>
+  <div class="user-div">
+      <form id="portal" action="/users" method="get">
+        <a class="logoutbutton" onclick="document.getElementById('portal').submit();">LOGIN</a>
+      </form>
+  </div>
+<% } %>

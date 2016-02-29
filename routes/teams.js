@@ -34,7 +34,7 @@ function points(ppg, dfg) {
 
 teams.route('/')
   .get( db.getTeams, (req, res) => {
-    res.render('pages/teams.html.ejs', { teams: res.rows } );
+    res.render('pages/teams.html.ejs', { user: req.session.user, teams: res.rows } );
   })
   .post( db.addTeam, (req, res) => {
     res.redirect('/teams');
@@ -42,7 +42,7 @@ teams.route('/')
 
 teams.route('/new')
   .get( (req, res) => {
-    res.render('pages/new_team.html.ejs', { });
+    res.render('pages/new_team.html.ejs', { user: req.session.user });
   })
 
 teams.route('/:id')
@@ -54,7 +54,7 @@ teams.route('/:id/edit')
   .get( db.getBudget, db.addDefaultPlayers, db.getPlayersEditPage, (req, res) => {
     var id = req.params.id;
 
-    res.render('pages/edit_team.html.ejs', { budget: res.budget, playerList: res.rows, id: id});
+    res.render('pages/edit_team.html.ejs', { user: req.session.user, budget: res.budget, playerList: res.rows, id: id});
   })
   .post( db.resetPlayer, db.revertBudget, (req, res) => {
     var id = req.params.id;
@@ -67,14 +67,14 @@ teams.route('/:id/:pos/edit')
     var pos = req.params.pos;
     var id = req.params.id;
 
-    res.render('pages/pos_list.html.ejs', { budget: res.budget, playerList: res.rows, position: pos, id: id })
+    res.render('pages/pos_list.html.ejs', { user: req.session.user, budget: res.budget, playerList: res.rows, position: pos, id: id })
   })
 
 teams.route('/:id/:pos')
   .get( db.showPlayerOnTeamByPos, (req, res) => {
     var id = req.params.id;
 
-    res.render('pages/team_player.html.ejs', { playerInfo: res.rows, teamID: id });
+    res.render('pages/team_player.html.ejs', { user: req.session.user, playerInfo: res.rows, teamID: id });
   })
   .post( db.addPlayerToTeam, db.editBudget, (req, res) => {
     var pos = req.params.pos;
@@ -84,7 +84,7 @@ teams.route('/:id/:pos')
   })
 
 teams.get('/battle', db.getTeams, (req, res) => {
-  res.render('pages/team_battle.html.ejs', { teams: res.rows } );
+  res.render('pages/team_battle.html.ejs', { user: req.session.user, teams: res.rows } );
 })
 
 
