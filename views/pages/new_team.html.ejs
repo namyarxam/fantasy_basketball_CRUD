@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <%- include ../partials/nav.html.ejs %>
-  <body>
-  <form class="new-team-form" action="/teams" method="post">
-    <label for="name">Team Name</label>
-    <input type="text" name="name">
-    <input type="submit" value="Submit">
-  </form>
+  <body class="newteambody">
+    <div class="newteamtitle">
+      <h1>CREATE YOUR TEAM</h1>
+    </div>
+    <div class="newteamform">
+      <form class="new-team-form" action="/teams" method="post">
+        <label for="name">NAME:</label>
+        <input type="text" name="name">
+        <input class="newteamsubmit" type="submit" value="Submit">
+      </form>
+    </div>
   </body>
 </html>
