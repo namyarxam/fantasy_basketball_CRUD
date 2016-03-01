@@ -19,3 +19,5 @@ Team edit feature:
 - Edit player @ position
 - View current player in fullscreen
 - Reset player at current position
+
+Deployed at: https://warm-citadel-14188.herokuapp.com/
